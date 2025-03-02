@@ -57,6 +57,8 @@ const Month = () => {
     const dayGroup =useMemo(()=>{
         const groupData = _.groupBy(currentMonthBill,item=>dayjs(item.date).format('YYYY / MM / DD'))
         const keys = Object.keys(groupData)
+        
+        
         return {
             groupData,
             keys
