@@ -1,10 +1,11 @@
 import { NavBar, DatePicker } from 'antd-mobile'
 import './index.scss'
 import dayjs from 'dayjs'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import classNames from 'classnames'
 import { useSelector } from 'react-redux'
 import _ from 'lodash'
+import DailyBill from './components/DailyBill'
 
 const Month = () => {
     const [dateVisible, setDateVisible] = useState(false)
@@ -47,6 +48,25 @@ const Month = () => {
         }
     }, [currentMonthBill])
 
+    useEffect(()=>{
+        const nowDate = dayjs(new Date()).format("YYYY | MMMM")
+        setCurrentMonthBill(monthGroup[nowDate]||[])
+    },[monthGroup])
+
+    //Group the bill of a day in the same month
+    const dayGroup =useMemo(()=>{
+        const groupData = _.groupBy(currentMonthBill,item=>dayjs(item.date).format('YYYY / MM / DD'))
+        const keys = Object.keys(groupData)
+        return {
+            groupData,
+            keys
+        }
+    },[currentMonthBill])
+
+    console.log(dayGroup);
+    
+
+    
 
     return (
         <div className="monthlyBill">
@@ -87,8 +107,13 @@ const Month = () => {
                         onConfirm={onConfirm}
                         onClose={() => setDateVisible(false)}
                     />
+                    
                 </div>
+                {
+                    dayGroup.keys.map(item=><DailyBill key={item} date={item} billList={dayGroup.groupData[item]}/>)
+                }
             </div>
+            
         </div >
     )
 }
