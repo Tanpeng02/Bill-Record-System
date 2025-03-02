@@ -1,16 +1,57 @@
-import { Outlet } from "react-router-dom"
-import { Button } from "antd-mobile"
+import { Outlet, useNavigate } from "react-router-dom"
+import { TabBar } from "antd-mobile"
+import { fetchBillList } from "@/store/modules/billStore"
+import { useEffect } from "react"
+import { useDispatch } from "react-redux"
+import {
+    BillOutline,
+    CalculatorOutline,
+    AddCircleOutline
+} from 'antd-mobile-icons'
+import './index.scss'
 
+const tabs = [
+    {
+        key: '/month',
+        title: 'Month Bill',
+        icon: <BillOutline />
+    },
+    {
+        key: '/new',
+        title: 'New Bill',
+        icon: <AddCircleOutline/>
+    },
+    {
+        key: '/year',
+        title: 'Year Bill',
+        icon: <CalculatorOutline />
+    },
+]
 
+const Layout = () => {
+    
 
-const Layout = () =>{
-    return(
-        <div>
-            <Outlet/>
-            i am layout
-            <Button color="primary">Global</Button>
-            <div className="purpleButton">
-                <Button color="primary">Local</Button>
+    const navigate = useNavigate()
+    const setRouteActive=(path)=>{
+        console.log(path)
+        navigate(path)
+    }
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(fetchBillList())
+    }, [dispatch])
+
+    return (
+        <div className="layout">
+            <div className="container">
+                <Outlet />
+            </div>
+            <div className="footer">
+                <TabBar onChange={setRouteActive}>
+                    {tabs.map(item => (
+                        <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
+                    ))}
+                </TabBar>
             </div>
         </div>
     )
