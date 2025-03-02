@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import './index.scss'
-import { useMemo } from 'react'
+import { useMemo , useState} from 'react'
 
 const DailyBill = ({ date, billList }) => {
     const dayResult = useMemo(() => {
@@ -12,12 +12,17 @@ const DailyBill = ({ date, billList }) => {
             total: expense + income
         }
     }, [billList])
+
+    const [visible,setVisible]= useState(false)
+    const active=()=>{
+        setVisible(!visible)
+    }
     return (
         <div className={classNames('dailyBill')}>
             <div className="header">
                 <div className="dateIcon">
                     <span className="date">{date}</span>
-                    <span className={classNames('arrow')}></span>
+                    <span onClick={active} className={classNames('arrow',visible && 'expand') }></span>
                 </div>
                 <div className="oneLineOverview">
                     <div className="pay">
@@ -34,7 +39,7 @@ const DailyBill = ({ date, billList }) => {
                     </div>
                 </div>
             </div>
-            <div className="billList">
+            <div className="billList" style={{display: visible?'block':'none'}}>
                 {billList.map(item => {
                     return (
                         <div className="bill" key={item.id}>
