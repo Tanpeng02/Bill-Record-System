@@ -5,112 +5,224 @@
       "money": -99,
       "date": "2022-10-24 10:36:42",
       "useFor": "drinks",
-      "id": 1
+      "id": "1"
     },
     {
       "type": "pay",
       "money": -88,
       "date": "2022-10-24 10:37:51",
       "useFor": "longdistance",
-      "id": 2
+      "id": "2"
     },
     {
       "type": "income",
       "money": 100,
       "date": "2022-10-22 00:00:00",
       "useFor": "bonus",
-      "id": 3
+      "id": "3"
     },
     {
       "type": "pay",
       "money": -33,
       "date": "2022-09-24 16:15:41",
       "useFor": "dessert",
-      "id": 4
+      "id": "4"
     },
     {
       "type": "pay",
       "money": -56,
       "date": "2022-10-22T05:37:06.000Z",
       "useFor": "drinks",
-      "id": 5
+      "id": "5"
     },
     {
       "type": "pay",
       "money": -888,
       "date": "2022-10-28T08:21:42.135Z",
       "useFor": "travel",
-      "id": 6
+      "id": "6"
     },
     {
       "type": "income",
       "money": 10000,
       "date": "2023-03-20T06:45:54.004Z",
       "useFor": "salary",
-      "id": 7
+      "id": "7"
     },
     {
       "type": "pay",
       "money": -10,
       "date": "2023-03-22T07:17:12.531Z",
       "useFor": "drinks",
-      "id": 8
+      "id": "8"
     },
     {
       "type": "pay",
       "money": -20,
       "date": "2023-03-22T07:51:20.421Z",
       "useFor": "dessert",
-      "id": 9
+      "id": "9"
     },
     {
       "type": "pay",
       "money": -100,
       "date": "2023-03-22T09:18:12.898Z",
       "useFor": "drinks",
-      "id": 17
+      "id": "10"
     },
     {
       "type": "pay",
       "money": -50,
       "date": "2023-03-23T09:11:23.312Z",
       "useFor": "food",
-      "id": 18
+      "id": "11"
     },
     {
       "type": "pay",
       "money": -100,
       "date": "2023-04-04T03:03:15.617Z",
       "useFor": "drinks",
-      "id": 19
+      "id": "12"
     },
     {
       "type": "pay",
       "money": -100,
       "date": "2023-04-02T16:00:00.000Z",
       "useFor": "food",
-      "id": 20
+      "id": "13"
     },
     {
       "type": "income",
       "money": 10000,
       "date": "2023-02-28T16:00:00.000Z",
       "useFor": "salary",
-      "id": 21
+      "id": "14"
     },
     {
       "type": "pay",
       "money": -898,
       "date": "2025-03-2 16:15:41",
       "useFor": "food",
-      "id": 22
+      "id": "15"
     },
     {
       "type": "income",
       "money": 10000,
       "date": "2025-03-2 17:15:41",
       "useFor": "salary",
-      "id": 23
+      "id": "16"
+    },
+    {
+      "type": "pay",
+      "money": -10,
+      "date": "2025-03-02T14:33:21.209Z",
+      "useFor": "food",
+      "id": "17"
+    },
+    {
+      "type": "pay",
+      "money": -220,
+      "date": "2025-03-02T14:38:12.130Z",
+      "useFor": "food",
+      "id": "18"
+    },
+    {
+      "id": "19",
+      "type": "pay",
+      "money": -120,
+      "date": "2025-03-02T15:11:32.702Z",
+      "useFor": "dessert"
+    },
+    {
+      "id": "20",
+      "type": "pay",
+      "money": -10,
+      "date": "2025-03-02T15:12:39.650Z",
+      "useFor": "drinks"
+    },
+    {
+      "id": "21",
+      "type": "pay",
+      "money": -10,
+      "date": "2025-03-02T15:14:32.936Z",
+      "useFor": "longdistance"
+    },
+    {
+      "id": "22",
+      "type": "pay",
+      "money": 0,
+      "date": "2025-03-03T02:51:55.413Z",
+      "useFor": "food"
+    },
+    {
+      "id": "23",
+      "type": "pay",
+      "money": -120,
+      "date": "2025-03-03T02:54:45.289Z",
+      "useFor": "dessert"
+    },
+    {
+      "id": "24",
+      "type": "pay",
+      "money": -120,
+      "date": "2025-03-03T02:55:43.881Z",
+      "useFor": "longdistance"
+    },
+    {
+      "id": "25",
+      "type": "pay",
+      "money": -120,
+      "date": "2025-03-03T02:59:20.351Z",
+      "useFor": "dessert"
+    },
+    {
+      "id": "26",
+      "type": "income",
+      "money": 1220,
+      "date": "2025-03-03T02:59:59.070Z",
+      "useFor": "overtimepay"
+    },
+    {
+      "id": "27",
+      "type": "income",
+      "money": 1110,
+      "date": "2025-03-03T03:24:34.131Z",
+      "useFor": "bonus"
+    },
+    {
+      "id": "28",
+      "type": "income",
+      "money": 120,
+      "date": "2025-03-03T03:24:34.131Z",
+      "useFor": "overtimepay"
+    },
+    {
+      "id": "29",
+      "type": "pay",
+      "money": -120,
+      "date": "2025-03-03T03:43:56.079Z",
+      "useFor": "drinks"
+    },
+    {
+      "id": "30",
+      "type": "pay",
+      "money": -110,
+      "date": "2025-03-03T03:47:58.499Z",
+      "useFor": "dessert"
+    },
+    {
+      "id": "31",
+      "type": "income",
+      "money": 230,
+      "date": "2025-03-03T03:47:58.499Z",
+      "useFor": "cashgift"
+    },
+    {
+      "id": "32",
+      "type": "pay",
+      "money": -1110,
+      "date": "2025-02-02T16:00:00.000Z",
+      "useFor": "dessert"
     }
   ]
 }

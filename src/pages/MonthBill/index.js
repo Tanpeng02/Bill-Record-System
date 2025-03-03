@@ -67,7 +67,8 @@ const Month = () => {
 
     console.log(dayGroup);
     
-
+    //assign the keys in ascending order
+    const sortedKeys = dayGroup.keys.sort((a, b) => new Date(a) - new Date(b));
     
 
     return (
@@ -111,8 +112,9 @@ const Month = () => {
                     />
                     
                 </div>
+                
                 {
-                    dayGroup.keys.map(item=><DailyBill key={item} date={item} billList={dayGroup.groupData[item]}/>)
+                    sortedKeys.map(item=><DailyBill key={item} date={item} billList={dayGroup.groupData[item]}/>)
                 }
             </div>
             
