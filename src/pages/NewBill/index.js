@@ -39,6 +39,8 @@ const NewBill = () => {
       moneyChange(0)
       setUseFor('')
     }
+    console.log(billList);
+    
   }
 
   //DatePicker Setting
@@ -56,7 +58,7 @@ const NewBill = () => {
 
   return (
     <div className="keepAccounts">
-      <NavBar className="nav" onBack={() => navigate(-1)}>
+      <NavBar className="nav" onBack={() => navigate('/month')}>
         Record
       </NavBar>
 
@@ -96,6 +98,8 @@ const NewBill = () => {
                 visible={dateVisible}
                 onClose={() => setDateVisible(false)}
                 onConfirm={onConfirm}
+                confirmText={"Confirm"}
+                cancelText={"Cancel"}
               />
             </div>
             <div className="kaInput">

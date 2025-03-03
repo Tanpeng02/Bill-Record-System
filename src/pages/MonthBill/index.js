@@ -27,11 +27,16 @@ const Month = () => {
         setCurrentMonthBill(monthGroup[dateFormat]||[])
 
     }
+    console.log('billList: ',billList);
+    
 
     const monthGroup = useMemo(() => {
-        return _.groupBy(billList, (item) => dayjs(item.date).format("YYYY | MMMM"))
+        return _.groupBy(billList, item => dayjs(item.date).format("YYYY | MMMM"))
 
     }, [billList])
+
+    console.log('monthGroup',monthGroup);
+    
 
     const monthResult = useMemo(() => {
         const expense = currentMonthBill.filter(item => item.type === 'pay').reduce((a, c) => a + c.money, 0)
@@ -109,6 +114,8 @@ const Month = () => {
                         max={new Date()}
                         onConfirm={onConfirm}
                         onClose={() => setDateVisible(false)}
+                        confirmText={"Confirm"}
+                        cancelText={"Cancel"}
                     />
                     
                 </div>

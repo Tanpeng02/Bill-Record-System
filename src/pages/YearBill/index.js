@@ -1,8 +1,7 @@
 import { NavBar, DatePicker } from 'antd-mobile'
 import './index.scss'
-import { fetchBillList } from '@/store/modules/billStore'
 import { useEffect, useState, useMemo } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import _ from 'lodash'
 import dayjs from 'dayjs'
 import classNames from 'classnames'
@@ -99,6 +98,8 @@ const YearBill = () => {
                         max={new Date()}
                         onClose={() => { setVisibleDate(false) }}
                         onConfirm={confirmDate}
+                        confirmText={"Confirm"}
+                        cancelText={"Cancel"}
                     />
 
                     

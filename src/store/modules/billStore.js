@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import axios from 'axios'
+import { database, ref, get , push} from "@/firebase"
 
 const billStore = createSlice({
     name:'bill',
@@ -18,22 +18,42 @@ const billStore = createSlice({
 
 const {setBillList,updateBill} = billStore.actions
 const reducer = billStore.reducer
+const dbRef = ref(database, "ka");
 
-const fetchBillList= ()=>{
-    return async (dispatch)=>{
-        const res = await axios.get('http://localhost:8888/ka')
-        dispatch(setBillList(res.data))
+const fetchBillList = () => {
+    return async (dispatch) => {
+      try {
+        // 访问 "bills" 节点
         
-    }
-}
+        const snapshot = await get(dbRef);
+        
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          
+          // 转换数据为数组格式
+          const billList = Object.keys(data).map((key) => ({
+            id: key,
+            ...data[key]
+          }));
+  
+          dispatch(setBillList(billList)); // 发送数据到 Redux
+        } else {
+          console.log("No data available");
+          dispatch(setBillList([])); // 数据为空
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+  };
 
 const postBillList=(data)=>{
     return async (dispatch)=>{
         
-        const res = await axios.post('http://localhost:8888/ka',data)
+        await push(dbRef,data)
+        dispatch(updateBill(data))
         
-        console.log("Response from server:", res.data);
-        dispatch(updateBill(res.data))
+        
     }
 }
 export {fetchBillList,postBillList}
