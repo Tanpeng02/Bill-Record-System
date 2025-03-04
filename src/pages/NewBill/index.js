@@ -26,10 +26,12 @@ const NewBill = () => {
   const dispatch = useDispatch()
 
   const saveBill = () => {
+    console.log(date);
+    
     const data = {
       type: type,
       money: type === 'pay' ? -money : +money,
-      date: date,
+      date: date.toISOString(),
       useFor: useFor,
       id: `${billList.length + 1}`
     }
@@ -49,6 +51,8 @@ const NewBill = () => {
   const todayDate = dayjs(new Date()).format('YYYY/MM/DD')
 
   const onConfirm = (date) => {
+    console.log('date: ',date);
+    
     setDate(date)
   }
 

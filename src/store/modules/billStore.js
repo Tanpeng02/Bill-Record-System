@@ -23,23 +23,23 @@ const dbRef = ref(database, "ka");
 const fetchBillList = () => {
     return async (dispatch) => {
       try {
-        // 访问 "bills" 节点
+        // Get data from Firebase
         
         const snapshot = await get(dbRef);
         
         if (snapshot.exists()) {
           const data = snapshot.val();
           
-          // 转换数据为数组格式
+          // Change the format of the data
           const billList = Object.keys(data).map((key) => ({
             id: key,
             ...data[key]
           }));
   
-          dispatch(setBillList(billList)); // 发送数据到 Redux
+          dispatch(setBillList(billList)); //Send to Redux
         } else {
           console.log("No data available");
-          dispatch(setBillList([])); // 数据为空
+          dispatch(setBillList([]));  //Data is empty
         }
       } catch (error) {
         console.error("Error fetching data:", error);
